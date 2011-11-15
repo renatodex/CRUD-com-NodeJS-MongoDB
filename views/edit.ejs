@@ -1,0 +1,18 @@
+<h1>Editar post</h1>
+
+<form action="/editpost" method="post">
+<dl>
+	<input type="hidden" name="objid" value="<%=posts._id%>"/>
+
+	<dt>Author</dt>
+	<dd><input type="text" name="author" value="<%=posts.author%>" /></dd>
+
+	<dt>Title</dt>
+	<dd><input type="text" name="title" value="<%=posts.title%>" /></dd>
+
+	<dt>Body</dt>
+	<dd><textarea name="body"><%=posts.body%></textarea></dd>
+
+	<dd><p><input type="submit" name="submit" /></p></dd>
+</dl>
+</form>

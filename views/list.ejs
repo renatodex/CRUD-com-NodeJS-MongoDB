@@ -1,0 +1,28 @@
+<h1>Listagem de posts</h1>
+
+<% if(existemPosts) { %>
+  <p>Existem posts</p>
+  <table>
+  	<tr>
+  		<th>Autor</th>
+  		<th>Titulo</th>
+  		<th>Post</th>
+      <th>Actions</th>
+  	</tr>
+  	<% for(i in posts) { %>
+	  	<tr>
+	  		<td><%=posts[i].author%></td>
+	  		<td><%=posts[i].title%></td>
+	  		<td><%=posts[i].body.toString().substr(0,5)%>...</td>
+        <td>
+          <a href="/editpost/<%=posts[i]._id.toHexString()%>">edit</a>
+          <a href="/deletepost/<%=posts[i]._id.toHexString()%>" onclick="javascript:return confirm('Deseja realmente excluir este registro?');">delete</a>
+        </td>
+	  	</tr>
+  	<% } %>
+  </table>
+<% } else { %>
+  <p>Não existe nenhum post cadastrado.
+<% }%>
+
+<p>Quer criar um novo post? <a href="/newpost">clique aqui</a>!</p>
